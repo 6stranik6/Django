@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Professions List</title>
+</head>
+<body>
+    <h1>Professions List</h1>
+    <ul>
+        {% for profession in professions %}
+            <li>{{ profession.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
