@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humans List</title>
+</head>
+<body>
+    <h1>Humans List</h1>
+    <ul>
+        {% for human in humans %}
+            <li>
+                <div>
+                    <h2>{{ human.name | upper }}</h2>
+                    <p>Age: {{ human.age }}</p>
+                    <p>Email: {{ human.email }}</p>
+                    <div>
+                        <div class="photo-container">
+                            <img src="{{ human.photo.url }}" alt="{{ human.name }} photo">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% empty %}
+            <li>No humans yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

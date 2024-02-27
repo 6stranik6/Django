@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professions List</title>
 </head>
 <body>
     <h1>Professions List</h1>
     <ul>
         {% for profession in professions %}
-            <li>{{ profession.title }}</li>
+            <li>{{ profession.name }}</li>
+        {% empty %}
+            <li>No professions yet.</li>
         {% endfor %}
     </ul>
 </body>
