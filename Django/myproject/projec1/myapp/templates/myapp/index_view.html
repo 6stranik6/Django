@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+        p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            padding: 5px 10px;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+        }
+        .links a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Page not found (404)</h1>
+    <p>Request Method: GET</p>
+    <p>Request URL: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+    <p>Using the URLconf defined in projec1.urls, Django tried these URL patterns, in this order:</p>
+    <ul>
+        <li>/index/</li>
+        <li>/admin/</li>
+        <li>/humans/ <a href="{% url 'human_list' %}">(See Humans)</a></li>
+        <li>/professions/ <a href="{% url 'profession_list' %}">(See Professions)</a></li>
+        <li>/profession/&lt;int:profession_id&gt;/ <a href="{% url 'get_profession' profession_id=1 %}">(Example: Profession 1)</a></li>
+    </ul>
+    <p>The empty path didn’t match any of these.</p>
+    
+    <div class="links">
+        <a href="{% url 'index' %}">Go to Home (Index)</a>
+        <a href="{% url 'admin:index' %}">Go to Admin Panel</a>
+    </div>
+</body>
+</html>

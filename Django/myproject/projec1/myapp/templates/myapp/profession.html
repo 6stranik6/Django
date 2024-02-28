@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People by Profession</title>
+</head>
+<body>
+    <h1>People by Profession</h1>
+    <ul>
+        {% for person in people %}
+            <li><a href="{% url 'person_detail' person.pk %}">{{ person.name }}</a> - {{ person.profession }}</li>
+        {% empty %}
+            <li>No people found for this profession</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
