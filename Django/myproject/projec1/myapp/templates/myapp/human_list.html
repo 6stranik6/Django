@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humans List</title>
-    <style>
-        .sidebar {
-            float: left;
-            width: 20%;
-            height: 100%;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
+{% extends 'myapp/base.html' %}
 
-        .content {
-            float: left;
-            width: 80%;
-            height: 100%;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <h3>Professions</h3>
-        <ul>
-            {% for profession in professions %}
-                <li><a href="#{{ profession.name }}">{{ profession.name }}</a></li>
-            {% empty %}
-                <li>No professions yet.</li>
-            {% endfor %}
-        </ul>
-    </div>
-    
+{% block title %}
+    Humans List
+{% endblock %}
+
+{% block content %}
+    {% include 'myapp/_nav.html' %}
+
     <div class="content">
         <h1>Humans List</h1>
         <ul>
@@ -64,5 +37,4 @@
             {% endfor %}
         </ul>
     </div>
-</body>
-</html>
+{% endblock %}

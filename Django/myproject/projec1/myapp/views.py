@@ -3,9 +3,8 @@ from django.shortcuts import render
 from myapp.models import Profession
 from .models import Human
 
-
-def index(request):
-    return HttpResponse('<h1>Hello, World!</h1>')
+def my_custom_404_view(request, exception):
+    return render(request, '404/404.html', status=404)
 
 def human_list(request):
     humans = Human.objects.all()
