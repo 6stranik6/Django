@@ -21,7 +21,7 @@ class Human(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    profession = models.ForeignKey('Profession', on_delete=models.CASCADE, default='Unspecified')
+    profession = models.ForeignKey(Profession, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=254)
 
     class Meta:
@@ -32,5 +32,5 @@ class Human(models.Model):
 def human_list(request):
     humans = Human.objects.all()
     professions = Profession.objects.all()  # Получаем все объекты Profession
-    return render(request, 'human_list.html', {'humans': humans, 'professions': professions})
+    return render(request, 'myapp/human_list.html', {'humans': humans, 'professions': professions})
   

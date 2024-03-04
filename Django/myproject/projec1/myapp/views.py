@@ -2,7 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from myapp.models import Profession
 from myapp.models import Human
-from django.views.generic.detail import DetailView 
+from django.views.generic.detail import DetailView
+from django.shortcuts import render, redirect
+from .forms import HumanForm
+from django.urls import reverse
 
 class ProfessionDetailView(DetailView):
     model = Profession
@@ -22,7 +25,7 @@ def professions_list(request):
     return render(request, 'myapp/professions_list.html', {'professions': professions})
 
 def get_profession(request, profession_id):
-    profession = Profession.objects.get(id=profession_id)
+    profession = get_object_or_404(Profession, id=profession_id)
     humans_with_profession = Human.objects.filter(profession=profession)
     
     return render(request, 'myapp/profession_detail.html', {
@@ -33,3 +36,13 @@ def get_profession(request, profession_id):
 def profession_detail(request, pk):
     profession = get_object_or_404(Profession, pk=pk)
     return render(request, 'myapp/profession_detail.html', {'profession': profession})
+
+def add_human(request):
+    if request.method == 'POST':
+        form = HumanForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('human_list'))
+    else:
+        form = HumanForm()
+    return render(request, 'add_human.html', {'form': form})
