@@ -33,4 +33,3 @@ def human_list(request):
     humans = Human.objects.all()
     professions = Profession.objects.all()  # Получаем все объекты Profession
     return render(request, 'myapp/human_list.html', {'humans': humans, 'professions': professions})
-  

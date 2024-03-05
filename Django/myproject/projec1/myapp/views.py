@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.shortcuts import render, redirect
 from .forms import HumanForm
 from django.urls import reverse
+from django.views.generic import ListView, DetailView, CreateView
 
 class ProfessionDetailView(DetailView):
     model = Profession
@@ -46,3 +47,27 @@ def add_human(request):
     else:
         form = HumanForm()
     return render(request, 'add_human.html', {'form': form})
+
+class HumanListView(ListView):
+    model = Human
+    template_name = 'myapp/human_list.html'
+    context_object_name = 'humans'
+
+class HumanCreateView(CreateView):
+    model = Human
+    template_name = 'myapp/human_form.html'
+    fields = '__all__' 
+
+class ProfessionListView(ListView):
+    model = Profession
+    template_name = 'myapp/profession_list.html'
+    context_object_name = 'professions'
+
+class ProfessionDetailView(DetailView):
+    model = Profession
+    template_name = 'myapp/profession_detail.html'
+
+class ProfessionCreateView(CreateView):
+    model = Profession
+    template_name = 'myapp/profession_form.html'
+    fields = '__all__' 

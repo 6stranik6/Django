@@ -25,7 +25,7 @@
                         </div>
                         <p>Profession:
                             {% if human.profession %}
-                                <a href="{% url 'profession-detail' human.profession.id %}">{{ human.profession.name }}</a>
+                                <a href="{% url 'profession_detail' human.profession.id %}">{{ human.profession.name }}</a>
                             {% else %}
                                 Not specified
                             {% endif %}
