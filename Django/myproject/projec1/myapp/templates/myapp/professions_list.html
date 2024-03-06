@@ -11,7 +11,7 @@
         <h1>Professions List</h1>
         <ul>
             {% for profession in professions %}
-                <li>{{ profession.name }}</li>
+                <li>{{ profession.name }} - {{ profession.humans.all.count }}</li>
             {% empty %}
                 <li>No professions yet.</li>
             {% endfor %}

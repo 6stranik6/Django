@@ -1,8 +1,9 @@
 from django import template
-from myapp import Profession
+from myapp.models import Profession
 
 register = template.Library()
 
 @register.simple_tag
-def get_all_professions():
-    return Profession.objects.all()
+def professions_with_people():
+    professions_with_people = Profession.objects.filter(person__isnull=False).distinct()
+    return professions_with_people
