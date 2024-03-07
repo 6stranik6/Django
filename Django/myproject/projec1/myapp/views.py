@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from myapp.models import Profession, Human
 from myapp.forms import HumanForm
 from django.urls import reverse
+from myapp.mixins import AuthorizeMixin
 
 class HumanListView(ListView):
     model = Human
@@ -35,10 +36,11 @@ def add_human(request):
         form = HumanForm()
     return render(request, 'add_human.html', {'form': form})
 
-class HumanCreateView(CreateView):
+class HumanCreateView(AuthorizeMixin, CreateView):
     model = Human
     template_name = 'myapp/human_form.html'
     fields = '__all__'
+    
 
 class ProfessionCreateView(CreateView):
     model = Profession

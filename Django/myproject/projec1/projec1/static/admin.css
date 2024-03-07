@@ -1,0 +1,68 @@
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif; /* Используйте шрифт Arial или другой фантастический шрифт */
+    background-color: #000000; /* Цвет фона - черный для футуристического стиля */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #222222; /* Цвет контейнера - темно-серый */
+    border: 1px solid #444444; /* Цвет границ контейнера */
+    border-radius: 10px; /* Более выразительный радиус границ */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Тень для контейнера */
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    padding: 12px 24px; /* Немного больше отступы для кнопки */
+    background-color: #ff9900; /* Оранжевый цвет для кнопки */
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px; /* Более скругленные углы */
+    cursor: pointer;
+    font-weight: bold; /* Жирный шрифт для кнопки */
+}
+
+.button:hover {
+    background-color: #ff6600; /* Цвет при наведении на кнопку */
+}
+
+/* Form styles */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px; /* Увеличиваем внутренний отступ для текстовых полей */
+    margin: 10px 0 20px 0; /* Немного больше отступы для полей */
+    border: 2px solid #ff9900; /* Оранжевая граница для полей */
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #ff9900; /* Оранжевый цвет для кнопки отправки формы */
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold; /* Жирный шрифт */
+}
+
+input[type="submit"]:hover {
+    background-color: #ff6600; /* Цвет при наведении на кнопку отправки формы */
+}
