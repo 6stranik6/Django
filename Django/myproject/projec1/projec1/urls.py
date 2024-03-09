@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 from myapp.views import HumanCreateView, CustomProfessionDetailView, ProfessionCreateView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('professions/<int:pk>/', CustomProfessionDetailView.as_view(), name='profession_detail'),
     path('professions/create/', ProfessionCreateView.as_view(), name='profession_create'),
     path('add_human/', views.add_human, name='add_human'),
+    path('reg/', include('register.urls')),
 ]
