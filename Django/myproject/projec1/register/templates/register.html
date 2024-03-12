@@ -1,5 +1,11 @@
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-  </form>
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if form.captcha %}
+      <div>
+          <label for="id_captcha">Enter the captcha:</label>
+          {{ form.captcha }}
+      </div>
+  {% endif %}
+  <button type="submit">Register</button>
+</form>

@@ -4,6 +4,8 @@ from myapp.models import Profession, Human
 from myapp.forms import HumanForm
 from django.urls import reverse
 from myapp.mixins import AuthorizeMixin
+from django.views.generic.base import View
+from django.http import JsonResponse
 
 class HumanListView(ListView):
     model = Human
@@ -46,3 +48,8 @@ class ProfessionCreateView(CreateView):
     model = Profession
     template_name = 'myapp/profession_form.html'
     fields = '__all__'
+
+class YourCKEditorUploadView(View):
+    def post(self, request, *args, **kwargs):
+        # Ваш код для обработки загрузки файла
+        return JsonResponse({'url': 'url_to_uploaded_file'})
